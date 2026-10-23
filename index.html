@@ -1,368 +1,158 @@
 <!doctype html>
-<html lang="en-GB">
+<html lang="en-GB" data-logo-shade="black">
 <head>
 <meta charset="utf-8">
-<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-K5SbhdhM6te0faBP1H5DCvgkTyNS2AU2XPjd5BEbLBE='; style-src 'sha256-fhWn5e4N3pYh5HCv3/6mMGV4HxhFSX1GUy/wnbax9Kc=' 'sha256-qwwmfMrHy6QaSKXqyMpR/me0WgDFSSqn6/yMRnM/vyQ='; font-src 'self'; img-src 'self' data:; connect-src 'none'; form-action 'none'; base-uri 'none'">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'sha256-QMKSvOXtjdbI8g8v+IQmCBYugEXuwP9j1b4dhTr0PRw='; style-src 'sha256-fhWn5e4N3pYh5HCv3/6mMGV4HxhFSX1GUy/wnbax9Kc=' 'sha256-qmBvJyJwzDZXfECUkdtNP7jhM/nlHtB4xJu55hD9iJA=' 'sha256-hc06qdbQjweUsz27imhiFVbFiZ2w2H2y+gKGW3f1EVE=' 'sha256-RRU3BBtICeRdFN/AuSMwBonnOzRsjJ7wPG49sTEwA9E='; font-src 'self'; img-src 'self' data:; connect-src 'none'; form-action 'none'; base-uri 'none'">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Suraj Jacob Chacko</title>
+<meta name="referrer" content="no-referrer">
 <meta name="theme-color" content="#00663a">
+<title>Suraj Jacob Chacko</title>
 <style>/* Outfit (Copyright 2021 The Outfit Project Authors) and Inter (Copyright 2016 The Inter Project Authors), SIL Open Font License 1.1, https://openfontlicense.org */
 @font-face{font-family:"Outfit";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/outfit-latin-600-normal.woff2) format("woff2")}
 @font-face{font-family:"Inter";font-style:normal;font-weight:400;font-display:swap;src:url(fonts/inter-latin-400-normal.woff2) format("woff2")}
 @font-face{font-family:"Inter";font-style:normal;font-weight:500;font-display:swap;src:url(fonts/inter-latin-500-normal.woff2) format("woff2")}
 @font-face{font-family:"Inter";font-style:normal;font-weight:600;font-display:swap;src:url(fonts/inter-latin-600-normal.woff2) format("woff2")}</style>
-<style>
-/* Precision palette (Poster Design Spec v1) */
-:root{
-  --grn:#00a651; --grn-2:#00b26b; --grn-3:#67c18c; --grn-4:#9bd3ae; --grn-dark:#00663a;
-  --tint-10:#D9EFE3; --tint-20:#A9D7BE;
-  --ink:#000; --ink-60:#5a5a5a; --ink-40:#828282;
-  --band:linear-gradient(135deg,#00663a 0%,#008445 60%,#00a651 100%);
-  --display:"Outfit",system-ui,sans-serif; --body:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
-}
+<style>/* Midnight: dark and bold. A large rounded photo, light type, mint accents. On a computer: photo left, details right. */
 *{box-sizing:border-box;margin:0;padding:0}
 html{-webkit-text-size-adjust:100%}
-body{font-family:var(--body);font-size:14px;line-height:1.55;color:var(--ink);background:color-mix(in srgb,var(--tint-10) 45%,#fff);-webkit-font-smoothing:antialiased}
+body{font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;font-size:14px;line-height:1.55;color:#eef4f0;background:#0c1411;-webkit-font-smoothing:antialiased}
 a{color:inherit;text-decoration:none}
-.shell{display:flow-root;position:relative;width:100%;max-width:480px;margin:0 auto;min-height:100vh;background:#fff}
-@media(min-width:600px){.shell{box-shadow:0 0 0 1px var(--tint-20),0 24px 70px rgba(0,102,58,.14)}}
-/* wide screens: show the card inside a phone-shaped frame (roughly 9:19.5) that scrolls on its own */
-html.framed body{min-height:100vh;display:grid;place-items:center;overflow:hidden}
-html.framed .shell{min-height:0;margin:0;border-radius:38px;overflow:hidden;box-shadow:0 0 0 10px #101814,0 0 0 11px #2b3a32,0 30px 80px rgba(0,60,34,.35)}
-html.framed #scroller{position:absolute;inset:0;overflow-y:auto;overscroll-behavior:contain;scrollbar-width:none}
-html.framed #scroller::-webkit-scrollbar{display:none}
-html.framed .stage{position:absolute}
+.card{display:flex;flex-direction:column;min-height:100vh;min-height:100dvh;max-width:480px;margin:0 auto;padding:16px 16px max(16px,env(safe-area-inset-bottom))}
+.hero{position:relative;flex:1;min-height:300px;max-height:62vh;border-radius:26px;overflow:hidden;background:linear-gradient(150deg,#1c3227 0%,#0f1d17 100%)}
+.photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center var(--photo-focus,22%)}
+.initials{position:absolute;inset:0;display:grid;place-items:center;font-family:"Outfit",system-ui,sans-serif;font-weight:600;font-size:110px;color:#8fd3ad;letter-spacing:.04em}
+.fade{position:absolute;left:0;right:0;bottom:0;height:40%;background:linear-gradient(0deg,rgba(12,20,17,.75),rgba(12,20,17,0))}
+.logo-shade{position:absolute;left:0;right:0;top:0;height:calc(var(--logo-top,24px) + var(--logo-height,40px) + 90px)}
+[data-logo-shade="black"] .logo-shade{background:linear-gradient(180deg,rgba(0,0,0,.65) 0%,rgba(0,0,0,0) 100%)}
+[data-logo-shade="white"] .logo-shade{background:linear-gradient(180deg,rgba(255,255,255,.9) 0%,rgba(255,255,255,0) 100%)}
+.logo{position:absolute;left:15%;width:70%;top:var(--logo-top,24px);height:var(--logo-height,40px);display:flex;justify-content:center}
+.logo img{display:block;height:100%;width:auto;max-width:100%;object-fit:contain}
+.who{padding:22px 6px 4px}
+.eid{font-weight:600;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#8fd3ad}
+.name{margin-top:4px;font-family:"Outfit",system-ui,sans-serif;font-weight:600;font-size:clamp(26px,8.6vw,34px);line-height:1.1;color:#fff;overflow-wrap:anywhere}
+.role{margin-top:4px;font-weight:500;font-size:15px;color:#b6c4bc}
+.actions:not(:has(a)){display:none}
+.actions{display:grid;gap:10px;padding-top:18px}
+.tiles{display:flex;gap:10px}
+.tiles:not(:has(a)){display:none}
+.tile{flex:1;min-width:0;height:62px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;border-radius:16px;background:#16221d;border:1px solid #263a30;
+  font-weight:600;font-size:13px;color:#dfe9e3;white-space:nowrap;transition:background .15s}
+.tile:hover,.tile:active{background:#1d2d26}
+.tile svg{width:22px;height:22px;fill:none;stroke:#8fd3ad;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
+.save{height:52px;display:flex;align-items:center;justify-content:center;gap:9px;border-radius:16px;background:#8fd3ad;color:#0c1411;font-weight:600;font-size:15px;transition:filter .15s}
+.save:hover,.save:active{filter:brightness(1.08)}
+.save svg{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 
-/* ---------- collapsing header ---------- */
-.stage{position:fixed;top:0;z-index:20;background:#fff;overflow:visible;contain:layout style;will-change:transform}
-.band{position:absolute;left:0;top:0;width:100%;background:var(--band)}
-.edge{position:absolute;left:0;top:0;width:100%;height:4px;background:var(--band);z-index:6}
-.photo{position:absolute;overflow:hidden;background:var(--band);z-index:2}
-.photo::before{content:"";position:absolute;inset:0;background:
-  radial-gradient(circle at 82% 18%,rgba(255,255,255,.14) 0 20%,transparent 21%),
-  radial-gradient(circle at 12% 88%,rgba(255,255,255,.08) 0 28%,transparent 29%)}
-.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 22%}
-.ini{position:absolute;left:50%;top:44%;font-family:var(--display);font-weight:600;font-size:120px;line-height:1;color:#fff;letter-spacing:.04em;white-space:nowrap;transform:translate(-50%,-50%)}
-.shade{position:absolute;inset:0;background:linear-gradient(0deg,rgba(0,30,16,.78) 0%,rgba(0,30,16,0) 55%),linear-gradient(180deg,rgba(0,30,16,.45),rgba(0,30,16,0) 22%)}
-.brandtag{position:absolute;left:20px;top:20px;z-index:4;color:#fff;font-family:var(--display);font-weight:600;font-size:12px;letter-spacing:.16em;text-transform:uppercase;
-  display:flex;align-items:center;gap:8px}
-.brandtag i{width:22px;height:22px;border:1.5px solid #fff;border-radius:6px;display:block}
-.who{position:absolute;inset:0;z-index:5;color:#fff;pointer-events:none}
-.who .name,.who .eid,.who .role{position:absolute;left:0;top:0;white-space:nowrap;transform-origin:0 0}
-.who .name{font-family:var(--display);font-weight:600;font-size:32px;line-height:1.12;letter-spacing:-.01em}
-.who .eid{font-weight:600;font-size:13px;line-height:1.3;letter-spacing:.08em;opacity:.92}
-.who .role{font-weight:500;font-size:15px;line-height:1.55;opacity:.92}
-.photo::after{content:"";position:absolute;inset:0;border-radius:inherit;border:2px solid rgba(255,255,255,.95);opacity:var(--ring,0);pointer-events:none}
-.strip[hidden]{display:none}
-.strip{position:absolute;left:0;width:100%;z-index:6;background:#fff;overflow:visible;--sep:0;--line:0}
-.strip::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--tint-20);opacity:var(--line)}
-.act{position:absolute;display:flex;align-items:center;justify-content:center;flex-direction:column;white-space:nowrap;overflow:hidden;font-weight:600;letter-spacing:.01em;
-  border:1px solid transparent;transition:filter .15s}
-.act:active{filter:brightness(.94)}
-.act svg{flex:none;fill:none;stroke:currentColor;stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
-.act.tile svg{color:var(--grn-dark)}
-.act.save{flex-direction:row;background:#00663a;color:#fff;font-size:15px}
-.act.save svg{flex:none}
-.act.save .sv-more{display:inline-block;overflow:hidden;white-space:pre;vertical-align:top}
-.act.tile::before{content:"";position:absolute;left:0;top:50%;height:18px;margin-top:-9px;width:1px;background:var(--grn-4);opacity:var(--sep)}
-.act.first::before{display:none}
-
-/* ---------- landing screen + scroll hint ---------- */
-.spacer{position:relative;width:100%}
-.hint{position:absolute;left:0;right:0;bottom:12px;display:flex;flex-direction:column;align-items:center;gap:1px;color:var(--grn-dark);font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;pointer-events:none}
-.hint svg{width:22px;height:22px;fill:none;stroke:var(--grn-dark);stroke-width:2;stroke-linecap:round;stroke-linejoin:round;animation:nudge 2.6s ease-in-out infinite}
-@keyframes nudge{0%,100%{transform:translateY(0);opacity:.5}50%{transform:translateY(6px);opacity:1}}
-
-/* ---------- content (poster components) ---------- */
-.content{padding:26px 20px 0}
-section{margin-bottom:34px}
-h2{font-family:var(--display);font-weight:600;font-size:18.7px;line-height:1.2;color:var(--grn-dark);margin-bottom:6px}
-.lead{color:var(--ink-60);margin-bottom:14px}
-.pull{background:var(--tint-10);border-left:3px solid var(--grn);border-radius:0 6px 6px 0;padding:14px 16px}
-.pull p{font-size:14.5px}
-.pull small{display:block;margin-top:8px;color:var(--ink-60);font-size:12px}
-.rail{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -20px;padding:2px 20px 10px;scrollbar-width:none}
-.rail::-webkit-scrollbar{display:none}
-.feat{flex:0 0 78%;scroll-snap-align:start;background:var(--tint-10);border:1px solid var(--tint-20);border-top:3px solid var(--grn);border-radius:0 0 7px 7px;padding:16px 18px}
-.shot{height:112px;border-radius:6px;margin-bottom:14px;border:1px dashed var(--tint-20);display:grid;place-items:center;color:var(--grn-dark);font-size:11px;letter-spacing:.1em;text-transform:uppercase;font-weight:600;
-  background:repeating-linear-gradient(135deg,rgba(255,255,255,.7) 0 10px,rgba(255,255,255,.25) 10px 20px)}
-.feat h3{font-family:var(--display);font-weight:600;font-size:16.7px;line-height:1.25;margin-bottom:6px}
-.feat p{font-size:13.6px;color:#222}
-.more{display:inline-block;margin-top:12px;font-weight:600;font-size:13px;color:var(--grn-dark)}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
-.stat{background:var(--tint-10);border:1px solid var(--tint-20);border-top:3px solid var(--grn);border-radius:0 0 7px 7px;padding:14px 12px}
-.stat b{display:block;font-family:var(--display);font-weight:600;font-size:22.7px;color:var(--grn-dark);line-height:1.1}
-.stat span{display:block;margin-top:4px;font-size:12.3px;color:var(--ink-60);line-height:1.35}
-.rows{display:flex;flex-direction:column;gap:8px}
-.row{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--tint-20);border-radius:10px;padding:12px 15px}
-.row .t{font-family:var(--display);font-weight:600;font-size:15px}
-.row .d{font-size:12.3px;color:var(--ink-60)}
-.row .go{margin-left:auto;width:18px;height:18px;fill:none;stroke:var(--grn-dark);stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-.row:active{background:var(--tint-10)}
-.ic{width:38px;height:38px;border-radius:9px;background:var(--tint-10);display:grid;place-items:center;flex:none}
-.ic svg{width:19px;height:19px;fill:none;stroke:var(--grn-dark);stroke-width:1.9;stroke-linecap:round;stroke-linejoin:round}
-footer{border-top:1px solid var(--tint-20);margin:0 20px;padding:22px 0 max(34px,env(safe-area-inset-bottom))}
-.logos{display:flex;align-items:center;margin-bottom:14px}
-.logo-ph{border:1px dashed var(--tint-20);border-radius:5px;display:grid;place-items:center;font-size:10.7px;color:var(--ink-40);letter-spacing:.08em;text-transform:uppercase}
-.divider{width:1px;height:28px;background:var(--tint-20);margin:0 19px}
-footer p{font-size:12px;color:var(--ink-60)}
-
-/* company logo at the top centre, with an optional shadow fading downwards behind it (options.logo, v2.2) */
-.cologo{position:absolute;left:15%;width:70%;z-index:4;display:flex;justify-content:center;pointer-events:none}
-.cologo img{display:block;height:100%;width:auto;max-width:100%;object-fit:contain}
-.logoshade{position:absolute;left:0;right:0;top:0;z-index:1;pointer-events:none}
-.logoshade.black{background:linear-gradient(180deg,rgba(0,0,0,.6) 0%,rgba(0,0,0,.28) 55%,rgba(0,0,0,0) 100%)}
-.logoshade.white{background:linear-gradient(180deg,rgba(255,255,255,.92) 0%,rgba(255,255,255,.45) 55%,rgba(255,255,255,0) 100%)}
-
-/* preview only: a pop-up over a blurred page saying what a button does (options.preview) */
-.sq-modal{position:fixed;inset:0;z-index:60;display:grid;place-items:center;padding:24px;background:rgba(16,24,20,.32);
+/* Computer: photo left, details right */
+@media (min-width:860px) and (min-height:520px){
+  body{display:grid;place-items:center;min-height:100vh;padding:40px}
+  .card{width:min(980px,100%);max-width:none;min-height:0;height:min(560px,calc(100vh - 80px));display:grid;grid-template-columns:minmax(0,46%) 1fr;grid-template-rows:1fr auto;
+    gap:0 44px;padding:20px;border-radius:32px;background:#111c17;box-shadow:0 0 0 1px #1f3028,0 40px 90px rgba(0,0,0,.45)}
+  .hero{grid-row:1/3;max-height:none;min-height:0}
+  .who{align-self:end;padding:0 24px 0 0}
+  .name{font-size:44px}
+  .role{font-size:17px}
+  .actions{padding:26px 24px 20px 0}
+}</style>
+<style>:root{--logo-top:17px;--logo-height:73px;--photo-focus:15%}</style>
+<style>/* Squawk's own styles on every Squawk Card Page, after the template's. Names starting sq- are reserved for these. */
+.sq-modal{position:fixed;inset:0;z-index:2147483000;display:grid;place-items:center;padding:24px;background:rgba(16,24,20,.32);
   -webkit-backdrop-filter:blur(7px);backdrop-filter:blur(7px);opacity:0;visibility:hidden;transition:opacity .22s ease,visibility 0s linear .22s}
 .sq-modal.on{opacity:1;visibility:visible;transition:opacity .22s ease}
-.sq-box{width:100%;max-width:300px;background:#fff;border-radius:18px;padding:22px 20px 16px;box-shadow:0 24px 60px rgba(0,0,0,.28);
-  transform:translateY(12px) scale(.96);transition:transform .28s cubic-bezier(.2,.8,.2,1)}
+.sq-box{width:100%;max-width:300px;background:#fff;color:#000;border-radius:18px;padding:22px 20px 16px;box-shadow:0 24px 60px rgba(0,0,0,.28);
+  font-family:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;transform:translateY(12px) scale(.96);transition:transform .28s cubic-bezier(.2,.8,.2,1)}
 .sq-modal.on .sq-box{transform:none}
-.sq-box small{display:block;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-60);margin-bottom:6px}
-.sq-box h3{font-family:var(--display);font-weight:600;font-size:19px;line-height:1.25;color:var(--grn-dark);margin-bottom:6px}
-.sq-box p{font-size:14.5px;line-height:1.5;color:#222;overflow-wrap:anywhere}
-.sq-box button{display:block;width:100%;margin-top:18px;border:0;border-radius:12px;background:#00663a;color:#fff;font:600 15px var(--body);padding:12px;cursor:pointer}
-.sq-box button:focus-visible{outline:3px solid var(--grn-4);outline-offset:2px}
+.sq-box small{display:block;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:#5a5a5a;margin-bottom:6px}
+.sq-box h3{font-family:"Outfit","Inter",system-ui,sans-serif;font-weight:600;font-size:19px;line-height:1.25;color:#00663a;margin:0 0 6px}
+.sq-box p{font-size:14.5px;line-height:1.5;color:#222;margin:0;overflow-wrap:anywhere}
+.sq-box button{display:block;width:100%;margin-top:18px;border:0;border-radius:12px;background:#00663a;color:#fff;font:600 15px "Inter",system-ui,sans-serif;padding:12px;cursor:pointer}
+.sq-box button:focus-visible{outline:3px solid #9bd3ae;outline-offset:2px}
 @media(prefers-reduced-motion:reduce){.sq-modal,.sq-box{transition:none}}
-
-.reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
-.reveal.in{opacity:1;transform:none}
-@media(prefers-reduced-motion:reduce){.hint svg{animation:none}.reveal{opacity:1;transform:none;transition:none}}
 </style>
 </head>
 <body>
-<div class="shell" id="shell">
-
-  <!-- collapsing header (driven by script below) -->
-  <header class="stage" id="stage" aria-label="Contact">
-    <div class="band" id="band"></div>
-    <div class="edge"></div>
-    <div class="photo" id="photo"><div class="ini" id="ini"></div><img id="img" alt=""><div class="logoshade" id="logoshade"></div><div class="shade" id="shade"></div></div>
-    <div class="brandtag" id="brandtag"><i></i><span>Precision Biometric</span></div>
-    <div class="cologo" id="cologo"><img id="cologo-img" alt=""></div>
-    <div class="who" id="who"><div class="name" id="name"></div><div class="eid" id="eid"></div><div class="role" id="role"></div></div>
-    <nav class="strip" id="strip" aria-label="Contact actions"></nav>
+<main class="card">
+  <div class="hero">
+    
+    <img class="photo" data-squawk="photo" data-squawk-if="photo" alt="Suraj Jacob Chacko" src="photo.jpg" draggable="false">
+    <div class="fade" data-squawk-if="photo"></div>
+    <div class="logo-shade" data-squawk-if="logo"></div>
+    <div class="logo" data-squawk-if="logo"><img data-squawk="logo" alt="Precision Biometric India Pvt. Ltd logo" src="logo.png" draggable="false"></div>
+  </div>
+  <header class="who">
+    <p class="eid" id="eid" data-squawk-if="employee_id">ID · PB0464</p>
+    <h1 class="name" id="name">Suraj Jacob Chacko</h1>
+    <p class="role" id="role" data-squawk-if="designation">Product Manager</p>
   </header>
+  <nav class="actions" aria-label="Contact">
+    <div class="tiles">
+      <a class="tile" data-squawk="call" href="tel:+917010149651"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"></path></svg><span>Call me</span></a>
+      <a class="tile" data-squawk="email" href="mailto:suraj.schilujohn@precisionit.co.in"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"></rect><path d="m22 7-10 6L2 7"></path></svg><span>Email me</span></a>
+      <a class="tile" data-squawk="linkedin" href="https://linkedin.com/in/surajjc" target="_blank" rel="noopener noreferrer"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg><span>LinkedIn</span></a>
+    </div>
+    <a class="save" data-squawk="save" data-squawk-if="save" href="suraj-jacob-chacko.vcf" download="suraj-jacob-chacko.vcf"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v12m0 0-4-4m4 4 4-4M5 21h14"></path></svg><span>Save my contact info</span></a>
+  </nav>
+</main>
+<script type="application/json" id="squawk-page">{"preview":false,"vcf":"suraj-jacob-chacko.vcf","contact":{"name":"Suraj Jacob Chacko","phone":"+917010149651","email":"suraj.schilujohn@precisionit.co.in","company":"Precision Biometric India Pvt. Ltd","title":"Product Manager"}}</script>
+<script>/* Squawk Card Page script. Plain JavaScript, no dependencies. Templates never add script: this is the only script on the page. */
+(function () {
+  "use strict";
+  var holder = document.getElementById("squawk-page");
+  if (!holder) return;
+  var data;
+  try { data = JSON.parse(holder.textContent); } catch (e) { return; }
+  var contact = data.contact || {};
+  var links = function (slot) { return Array.prototype.slice.call(document.querySelectorAll('a[data-squawk="' + slot + '"]')); };
 
-  <div id="scroller"></div>
-</div>
+  if (data.preview) {
+    /* The preview inherits the Creator's security policy, which accepts no new <style> blocks: apply the template's CSS and
+       settings through the CSS object model instead. */
+    try {
+      var sheets = [data.css || "", data.settings || ""].map(function (text) { var s = new CSSStyleSheet(); s.replaceSync(text); return s; });
+      document.adoptedStyleSheets = sheets;
+    } catch (e) { /* very old browser: the preview shows without the template's styles */ }
 
-<script type="application/json" id="squawk-data">{"person":{"name":"Suraj Jacob Chacko","employeeId":"PB0464","title":"Product Manager","company":"Precision Biometric India Pvt. Ltd","phone":"+917010149651","email":"suraj.schilujohn@precisionit.co.in","linkedin":"https://linkedin.com/in/surajjc","photo":"photo.jpg","vcf":"suraj-jacob-chacko.vcf"},"options":{"brand":"","photoFocus":15,"logo":"logo.png","logoShade":"black","logoTop":17,"logoHeight":73}}</script>
-<script>
-/* ---------- DATA: read from the separate JSON block; it is never executed as code ---------- */
-const DATA = JSON.parse(document.getElementById("squawk-data").textContent);
-const PERSON = DATA.person, OPTS = DATA.options || {};
-
-const $ = id => document.getElementById(id);
-const has = v => typeof v === "string" && v.trim() !== "";
-
-/* initials placeholder: first + last name, like Teams */
-function initialsOf(n){
-  const w = n.trim().split(/\s+/).filter(Boolean);
-  return ((w[0]||"")[0] + (w.length>1 ? w[w.length-1][0] : "")).toUpperCase();
-}
-
-/* contact card generated on the fly when no .vcf file is supplied */
-function makeVcf(p){
-  const esc = t => t.replace(/[\\,;]/g, "\\$&");
-  const w = p.name.trim().split(/\s+/), last = w.length>1 ? w.pop() : "", first = w.join(" ");
-  const L = ["BEGIN:VCARD","VERSION:3.0",`N:${esc(last)};${esc(first)};;;`,`FN:${esc(p.name.trim())}`];
-  if(has(p.company))  L.push(`ORG:${esc(p.company)}`);
-  if(has(p.title))    L.push(`TITLE:${esc(p.title)}`);
-  if(has(p.phone))    L.push(`TEL;TYPE=CELL,VOICE:${p.phone}`);
-  if(has(p.email))    L.push(`EMAIL;TYPE=WORK,INTERNET:${p.email}`);
-  if(has(p.linkedin)) L.push(`URL;TYPE=LinkedIn:${p.linkedin}`);
-  L.push("END:VCARD");
-  return L.join("\r\n") + "\r\n";
-}
-
-/* identity */
-$("name").textContent = PERSON.name;
-const hasId = has(PERSON.employeeId), idText = hasId ? "ID · " + PERSON.employeeId.trim() : "";
-if(hasId) $("eid").textContent = idText; else $("eid").remove();
-if(has(PERSON.title)) $("role").textContent = PERSON.title; else $("role").remove();
-$("ini").textContent = initialsOf(PERSON.name);
-const img = $("img");
-if(has(PERSON.photo)){ img.alt = PERSON.name; img.onerror = () => img.remove(); img.src = PERSON.photo; } else img.remove();
-if(typeof OPTS.photoFocus === "number") img.style.objectPosition = "center " + Math.min(100,Math.max(0,OPTS.photoFocus)) + "%";
-document.title = PERSON.name + (has(OPTS.brand) ? " \u00b7 " + OPTS.brand : "");
-const bt = $("brandtag"); if(has(OPTS.brand)) bt.querySelector("span").textContent = OPTS.brand; else bt.remove();
-
-/* company logo (v2.2): top centre, sized and placed by the producer, with an optional white or black shadow behind it */
-const inRange = (v,a,b,d) => typeof v === "number" && isFinite(v) ? Math.min(b,Math.max(a,v)) : d;
-let cologo = $("cologo"), logoShade = $("logoshade");
-if(has(OPTS.logo)){
-  const li = $("cologo-img"), top = inRange(OPTS.logoTop,8,200,24), height = inRange(OPTS.logoHeight,16,120,40);
-  li.alt = has(PERSON.company) ? PERSON.company.trim() + " logo" : "Company logo"; li.onerror = () => cologo.remove(); li.src = OPTS.logo;
-  cologo.style.top = top + "px"; cologo.style.height = height + "px";
-  if(OPTS.logoShade === "white" || OPTS.logoShade === "black"){ logoShade.classList.add(OPTS.logoShade); logoShade.style.height = (top + height + 90) + "px"; }
-  else { logoShade.remove(); logoShade = null; }
-} else { cologo.remove(); logoShade.remove(); cologo = logoShade = null; }
-
-/* action buttons: only the ones that have data.
-   Row 1 (expanded): Call me / Email me / LinkedIn. Row 2: one wide "Save my contact info".
-   Stowed: one row of bare text cells with thin separators, the first being "Save". */
-const ICON = {
-  save:'<svg viewBox="0 0 24 24"><path d="M12 3v12m0 0-4-4m4 4 4-4M5 21h14"/></svg>',
-  call:'<svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></svg>',
-  mail:'<svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>',
-  li:  '<svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>'
-};
-const slug = PERSON.name.trim().toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-|-$/g,"");
-const hasSave = has(PERSON.vcf) || has(PERSON.phone) || has(PERSON.email);
-const saveHref = !hasSave ? "" : has(PERSON.vcf) ? PERSON.vcf
-               : URL.createObjectURL(new Blob([makeVcf(PERSON)],{type:"text/vcard"}));
-const saveDl = has(PERSON.vcf) ? "" : slug+".vcf";
-const tiles = [];
-if(has(PERSON.phone))    tiles.push({label:"Call me",  icon:ICON.call, href:"tel:"+PERSON.phone.replace(/\s+/g,"")});
-if(has(PERSON.email))    tiles.push({label:"Email me", icon:ICON.mail, href:"mailto:"+PERSON.email.trim()});
-if(has(PERSON.linkedin)) tiles.push({label:"LinkedIn", icon:ICON.li,   href:PERSON.linkedin.trim(), blank:true});
-
-const strip = $("strip");
-function mk(cls,label,icon,href,o={}){
-  const a=document.createElement("a");
-  a.className="act "+cls; a.innerHTML=(icon||"")+"<span>"+label+"</span>"; a.href=href;
-  if(o.download!==undefined) a.setAttribute("download",o.download);
-  if(o.blank){a.target="_blank";a.rel="noopener"}
-  strip.appendChild(a); return a;
-}
-// one Save button for both states: it keeps its fill, so it stays the primary action even when stowed
-const saveBtn = hasSave ? mk("save","<span>Save</span><span class=\"sv-more\"> my contact info</span>",ICON.save,saveHref,{download:saveDl}) : null;
-if(saveBtn){ saveBtn.innerHTML = ICON.save + '<span>Save</span><span class="sv-more"> my contact info</span>'; }
-tiles.forEach((x,i)=>{ x.el=mk("tile"+(i===0?" first":""),x.label,x.icon,x.href,x); x.svg=x.el.querySelector("svg"); });
-const saveSvg = saveBtn ? saveBtn.querySelector("svg") : null, saveMore = saveBtn ? saveBtn.querySelector(".sv-more") : null;
-strip.hidden = !hasSave && tiles.length===0;
-
-/* preview mode (a producer's live preview only): Save, Call and Email say what they do instead of acting; LinkedIn opens as normal */
-if(OPTS.preview === true){
-  const modal = document.createElement("div"), box = document.createElement("div"), tag = document.createElement("small"),
-        head = document.createElement("h3"), msg = document.createElement("p"), ok = document.createElement("button");
-  modal.className = "sq-modal"; modal.setAttribute("role","dialog"); modal.setAttribute("aria-modal","true"); modal.setAttribute("aria-labelledby","sq-modal-title");
-  box.className = "sq-box"; head.id = "sq-modal-title"; tag.textContent = "Preview"; ok.type = "button"; ok.textContent = "OK";
-  box.append(tag, head, msg, ok); modal.appendChild(box); document.body.appendChild(modal);
-  let back = null;
-  const close = () => { modal.classList.remove("on"); if(back) back.focus(); };
-  const say = (title, text, from) => { head.textContent = title; msg.textContent = text; back = from; modal.classList.add("on"); ok.focus(); };
-  ok.addEventListener("click", close);
-  modal.addEventListener("click", e => { if(e.target === modal) close(); });
-  addEventListener("keydown", e => { if(e.key === "Escape" && modal.classList.contains("on")) close(); });
-  if(saveBtn) saveBtn.addEventListener("click", e => { e.preventDefault(); say("Save my contact info", "On the real page, this button saves " + PERSON.name.trim() + " to the phone's contacts.", saveBtn); });
-  tiles.forEach(x => { if(x.blank) return; x.el.addEventListener("click", e => { e.preventDefault();
-    if(x.href.startsWith("tel:")) say("Call me", "On a phone, this button calls " + PERSON.phone.trim() + ".", x.el);
-    else say("Email me", "On the real page, this button starts an email to " + PERSON.email.trim() + ".", x.el); }); });
-}
-
-/* ---------- scroll choreography ----------
-   Two states only: EXPANDED (landing) and STOWED (header). One progress value t runs 0 -> 1 with the scroll and
-   every element interpolates between its two states over that same t. There is no smoothing or delay: the header is
-   rendered from the very scroll position the page itself is at, in the same frame, so the two cannot drift apart. */
-const lerp=(a,b,t)=>a+(b-a)*t, clamp=(v,a,b)=>Math.min(b,Math.max(a,v)), sm=t=>t*t*(3-2*t);
-const mix=(c0,c1,t)=>c0.map((v,i)=>Math.round(lerp(v,c1[i],t))).join(",");
-const BAND=78, AV=58, PADA=(BAND-AV)/2, HINTZ=0, hasTitle=has(PERSON.title);   // taller header; avatar has equal padding on top, bottom and left
-const SS = (hasSave||tiles.length) ? 52 : 0;                    // stowed strip height
-const ROW1=64, WIDEH=48, GAP=8;                                 // expanded: tile row height, Save button height, gap
-const EXP = SS ? 14+(tiles.length?ROW1:0)+(tiles.length&&hasSave?GAP:0)+(hasSave?WIDEH:0)+14 : 0;
-const IS0=13, IS1=11;                                           // employee ID size: expanded, stowed
-const blockH=(fs,is,rs)=>fs*1.12+(hasId?3+is*1.3:0)+(hasTitle?2+rs*1.55:0);
-const NAME_TOP1=(BAND-blockH(17,IS1,12))/2;
-const root=document.documentElement, shell=$("shell"), scr=$("scroller"), stage=$("stage");
-let M={nameK:9.4, roleK:5}, framed=false, raf=0;
-
-function textW(txt,font,extra){ const e=document.createElement("span"); e.textContent=txt; e.style.cssText="position:absolute;left:-9999px;top:0;visibility:hidden;white-space:nowrap;font:"+font+";"+(extra||""); document.body.appendChild(e); const w=e.getBoundingClientRect().width; e.remove(); return w; }
-function measureNames(){ M.nameK=textW(PERSON.name,'600 100px var(--display)')/100; M.roleK=hasTitle?textW(PERSON.title,'500 100px var(--body)')/100:0; M.idK=hasId?textW(idText,'600 100px var(--body)','letter-spacing:.08em')/100:0; }
-function pos(){ return framed ? scr.scrollTop : Math.max(0,window.scrollY); }
-
-function layoutButtons(){
-  const W=M.W; if(!W||!SS) return;
-  const cells=[...(hasSave?[{label:"Save",save:true}]:[]),...tiles];
-  const raw=cells.map(x=>x.save ? textW("Save",'600 13px var(--body)')+16+6+32 : textW(x.label,'600 13px var(--body)')+24), sum=raw.reduce((a,b)=>a+b,0);
-  let xs=0; cells.forEach((x,i)=>{ const w=raw[i]*W/sum; x.s={l:xs,w}; xs+=w; });
-  const k=tiles.length, tw=(W-32-GAP*(k-1))/(k||1);
-  tiles.forEach((x,j)=>{ x.e={l:16+j*(tw+GAP),t:14,w:tw,h:ROW1}; x.s={...x.s,t:0,h:SS}; });
-  if(hasSave){ const c=cells[0]; M.save={ s:{l:c.s.l+8,w:c.s.w-16,t:(SS-34)/2,h:34}, e:{l:16,w:W-32,t:14+(k?ROW1+GAP:0),h:WIDEH}, more:textW("\u00a0my contact info",'600 15px var(--body)')+6 }; }
-}
-function measure(){
-  measureNames();
-  const W=shell.clientWidth, vh=framed?shell.clientHeight:window.innerHeight;
-  const photoH=Math.max(240,vh-EXP-HINTZ);                     // landing screen = photo + buttons + hint, nothing else
-  M={...M,W,vh,photoH,L:photoH+EXP-BAND-SS};                   // the header's lower edge travels 1:1 with the page
-  if(framed){ stage.style.left="0px"; stage.style.width=W+"px"; }
-  else { const r=shell.getBoundingClientRect(); stage.style.left=r.left+"px"; stage.style.width=W+"px"; }
-  layoutButtons();
-}
-function setup(){
-  framed = window.innerWidth>=700;
-  root.classList.toggle("framed",framed);
-  if(framed){
-    const H=Math.min(window.innerHeight-56,900), Wf=Math.min(Math.round(H/2.17),430);   // phone-shaped: about 9:19.5
-    shell.style.width=Wf+"px"; shell.style.height=H+"px";
-  } else { shell.style.width=""; shell.style.height=""; }
-  measure(); render(pos());
-}
-function R(el,l,t,w,h){const s=el.style;s.left=l+"px";s.top=t+"px";s.width=w+"px";s.height=h+"px"}
-
-function render(c){
-  if(!M.W) return;   // not laid out yet (for example inside a hidden frame): setup() runs again on resize
-  const {W,photoH,L}=M, t=clamp(c/L,0,1);
-  // the photo is the biggest mover, so it runs on a steeper curve (fp) than the rest. Same start, same end.
-  const fp=1-Math.pow(1-t,1.6);
-  const w=lerp(W,AV,fp), h=w+(photoH-W)*(1-fp)*(1-fp), l=lerp(0,PADA,fp), top=lerp(0,PADA,fp);
-  const stripTop=lerp(photoH,BAND,t), stripH=lerp(EXP,SS,t), ph=$("photo");
-  stage.style.height=(stripTop+stripH)+"px"; strip.style.top=stripTop+"px"; strip.style.height=stripH+"px";
-  strip.style.setProperty("--line",clamp((t-.6)/.4,0,1)); strip.style.setProperty("--sep",clamp((t-.5)/.5,0,1));
-  // photo: rectangle -> circle
-  const cap=Math.min(w,h)/2, rt=lerp(0,cap,fp), rb=lerp(28,cap,fp);
-  R(ph,l,top,w,h);
-  ph.style.borderRadius=`${rt}px ${rt}px ${rb}px ${rb}px`;
-  ph.style.setProperty("--ring",fp);
-  // green frame: always fills down to the strip, squaring off as it closes up
-  const band=$("band"); band.style.height=(stripTop-2*(1-t))+"px"; band.style.borderRadius=`0 0 ${lerp(28,0,t)}px ${lerp(28,0,t)}px`;
-  $("shade").style.opacity=1-fp;
-  $("ini").style.transform=`translate(-50%,-50%) scale(${lerp(1,18/120,fp)})`; $("ini").style.top=lerp(44,50,fp)+"%";
-  bt.style.opacity=1-Math.min(1,t*2);
-  if(cologo) cologo.style.opacity=1-Math.min(1,t*2);
-  if(logoShade) logoShade.style.opacity=1-Math.min(1,t*2);
-  // name: centred on landing -> left-aligned beside the circle
-  const fs0=Math.min(32,(W-32)/M.nameK), rs0=15*Math.min(1,fs0/32+.15);   // narrow screens: start a touch smaller so the name always fits
-  const fs=lerp(fs0,17,t), is=lerp(IS0,IS1,t), rs=lerp(rs0,12,t);
-  const nameW0=fs0*M.nameK, left0=(W-nameW0)/2;
-  const xn=lerp(left0,PADA+AV+12,t), yn=lerp(photoH-28-blockH(fs0,IS0,rs0),NAME_TOP1,t);
-  $("name").style.transform=`translate3d(${xn}px,${yn}px,0) scale(${fs/32})`;
-  let yy=yn+fs*1.12;
-  if(hasId){ yy+=3; const off=lerp((nameW0-IS0*M.idK)/2,0,t);
-    $("eid").style.transform=`translate3d(${xn+off}px,${yy}px,0) scale(${is/13})`; yy+=is*1.3; }
-  if(hasTitle){ yy+=2; const off=lerp((nameW0-rs0*M.roleK)/2,0,t);
-    $("role").style.transform=`translate3d(${xn+off}px,${yy}px,0) scale(${rs/15})`; }
-  // buttons: proper buttons -> bare text cells, same t
-  const o=1-t;
-  tiles.forEach(x=>{
-    const e=x.e, s=x.s, a=x.el;
-    R(a,lerp(e.l,s.l,t),lerp(e.t,s.t,t),lerp(e.w,s.w,t),lerp(e.h,s.h,t));
-    a.style.borderRadius=lerp(12,0,t)+"px"; a.style.borderColor=`rgba(169,215,190,${o})`;
-    a.style.background=`rgba(255,255,255,${o})`; a.style.color=`rgb(${mix([0,0,0],[0,102,58],t)})`;
-    a.style.fontSize=lerp(13.5,13,t)+"px";
-    x.svg.style.width="24px"; x.svg.style.height=lerp(24,0,t)+"px"; x.svg.style.marginBottom=lerp(8,0,t)+"px"; x.svg.style.opacity=o;
-  });
-  if(hasSave && M.save){
-    // one button, same fill throughout: its extra words fold away, it narrows to the left and rises into the row
-    const q=M.save, fw=1-Math.pow(1-t,4), fx=1-Math.pow(1-t,3), g=Math.pow(t,3), k=clamp(t/.2,0,1);
-    R(saveBtn,lerp(q.e.l,q.s.l,fx),lerp(q.e.t,q.s.t,g),lerp(q.e.w,q.s.w,fw),lerp(q.e.h,q.s.h,t));
-    saveBtn.style.borderRadius=lerp(12,17,t)+"px"; saveBtn.style.fontSize=lerp(15,13,t)+"px";
-    saveSvg.style.width=saveSvg.style.height=lerp(22,16,t)+"px"; saveSvg.style.marginRight=lerp(9,6,t)+"px";
-    saveMore.style.maxWidth=lerp(q.more,0,k)+"px"; saveMore.style.opacity=1-k;
+    /* Call, Email and Save open a pop-up over a blurred page saying what they do. LinkedIn opens as normal. */
+    var modal = document.createElement("div"), box = document.createElement("div"), tag = document.createElement("small"),
+        head = document.createElement("h3"), msg = document.createElement("p"), ok = document.createElement("button"), back = null;
+    modal.className = "sq-modal"; modal.setAttribute("role", "dialog"); modal.setAttribute("aria-modal", "true"); modal.setAttribute("aria-labelledby", "sq-modal-title");
+    box.className = "sq-box"; head.id = "sq-modal-title"; tag.textContent = "Preview"; ok.type = "button"; ok.textContent = "OK";
+    box.appendChild(tag); box.appendChild(head); box.appendChild(msg); box.appendChild(ok); modal.appendChild(box); document.body.appendChild(modal);
+    var close = function () { modal.classList.remove("on"); if (back) back.focus(); };
+    var say = function (title, text, from) { head.textContent = title; msg.textContent = text; back = from; modal.classList.add("on"); ok.focus(); };
+    ok.addEventListener("click", close);
+    modal.addEventListener("click", function (e) { if (e.target === modal) close(); });
+    addEventListener("keydown", function (e) { if (e.key === "Escape" && modal.classList.contains("on")) close(); });
+    var explain = { call: ["Call me", "On a phone, this button calls " + contact.phone + "."],
+                    email: ["Email me", "On the real page, this button starts an email to " + contact.email + "."],
+                    save: ["Save my contact", "On the real page, this button saves " + contact.name + " to the phone's contacts."] };
+    ["call", "email", "save"].forEach(function (slot) {
+      links(slot).forEach(function (a) { a.addEventListener("click", function (e) { e.preventDefault(); say(explain[slot][0], explain[slot][1], a); }); });
+    });
+    return;
   }
-}
-function onScroll(){ if(!raf) raf=requestAnimationFrame(()=>{raf=0;render(pos())}); }   // same frame as the page's own scroll
-addEventListener("scroll",onScroll,{passive:true});
-scr.addEventListener("scroll",onScroll,{passive:true});
-addEventListener("resize",()=>{setup()});
-addEventListener("orientationchange",()=>setTimeout(setup,250));
-setup();
-document.fonts && document.fonts.ready.then(()=>{ measureNames(); layoutButtons(); render(pos()); });
 
+  /* Save contact. iPhone and iPad: open the contact file itself, and Safari shows the card with Create New Contact.
+     Android: open the phone's own Create contact screen, filled in, falling back to the contact file if that is not possible.
+     Computers: download the contact file. */
+  if (!data.vcf) return;
+  var ua = navigator.userAgent || "";
+  var ios = /iPad|iPhone|iPod/.test(ua) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+  var android = /Android/i.test(ua);
+  var intent = function (fileUrl) {
+    var e = encodeURIComponent, x = "intent:#Intent;action=android.intent.action.INSERT;type=vnd.android.cursor.dir/contact;";
+    if (contact.name) x += "S.name=" + e(contact.name) + ";";
+    if (contact.phone) x += "S.phone=" + e(contact.phone) + ";";
+    if (contact.email) x += "S.email=" + e(contact.email) + ";";
+    if (contact.company) x += "S.company=" + e(contact.company) + ";";
+    if (contact.title) x += "S.job_title=" + e(contact.title) + ";";
+    return x + "S.browser_fallback_url=" + e(fileUrl) + ";end";
+  };
+  links("save").forEach(function (a) {
+    if (ios) a.removeAttribute("download");
+    else if (android) { a.removeAttribute("download"); a.setAttribute("href", intent(new URL(data.vcf, location.href).href)); }
+  });
+})();
 </script>
 </body>
 </html>
